@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "commonjs",
+        "strict": true,
+        "esModuleInterop": true,
+        "outDir": "./dist",
+        "rootDir": "./",
+        "baseUrl": "./", // 设置基本路径
+        "skipLibCheck": true, // 跳过库文件检查
+        "forceConsistentCasingInFileNames": true // 强制文件名一致性
+    },
+    "include": ["src/**/*", "app.ts"],
+    "exclude": ["node_modules"]
+}
