@@ -10,7 +10,7 @@ const swaggerDefinition = {
         version: '1.0.0', // Version (required)
         description: '管理接入迅雷sso系统的账号和权限' // Description (optional)
     },
-    host: `http://${AddressIp.address()}:${PORT}`, // Host (optional)
+    host: `${AddressIp.address()}:${PORT}`, // Host (optional)
     basePath: '/' // Base path (optional)
 }
 // console.log('first', path.join(__dirname, '../../routes/*.ts'))
