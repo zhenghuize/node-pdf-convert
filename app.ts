@@ -1,6 +1,7 @@
 import Koa, { Context, Next } from 'koa'
 
 import { koaSwagger } from 'koa2-swagger-ui'
+import { loggerMiddleware } from './src/middlewares/logger'
 import AddressIp from 'ip'
 
 import { PORT } from './src/config/constant'
@@ -8,7 +9,6 @@ import { PORT } from './src/config/constant'
 const views = require('koa-views')
 const json = require('koa-json')
 const bodyparser = require('koa-bodyparser')
-const logger = require('koa-logger')
 
 import { autoRouter } from './src/routes/index'
 
@@ -44,7 +44,7 @@ app.use(
     })
 )
 app.use(json())
-app.use(logger())
+app.use(loggerMiddleware)
 app.use(require('koa-static')(__dirname + '/src/public'))
 
 app.use(

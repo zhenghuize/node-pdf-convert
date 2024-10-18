@@ -23,6 +23,7 @@
         "koa-router": "^7.4.0",
         "koa-static": "^5.0.0",
         "koa-views": "^6.2.0",
+        "log4js": "^6.9.1",
         "prettier": "^3.3.3",
         "pug": "^2.0.3",
         "ts-node": "^10.9.2",
