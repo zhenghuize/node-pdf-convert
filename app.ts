@@ -1,15 +1,16 @@
 import Koa, { Context, Next } from 'koa'
 
 import { koaSwagger } from 'koa2-swagger-ui'
+import AddressIp from 'ip'
+
+import { PORT } from './src/config/constant'
 
 const views = require('koa-views')
 const json = require('koa-json')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 
-// const Index = require('./src/routes/index')
-import Index from './src/routes/index'
-import Swagger from './src/routes/swagger'
+import { autoRouter } from './src/routes/index'
 
 const app = new Koa()
 
@@ -61,8 +62,7 @@ app.use(async (ctx: Context, next: Next) => {
 })
 
 // 路由
-app.use(Swagger.routes()).use(Swagger.allowedMethods())
-app.use(Index.routes()).use(Index.allowedMethods())
+autoRouter(app)
 
 // error-handling
 app.on('error', (err, ctx: Context) => {
@@ -70,9 +70,8 @@ app.on('error', (err, ctx: Context) => {
 })
 
 // 启动服务
-const PORT = 3000 // 可以根据需要更改端口号
 app.listen(PORT, () => {
-    console.log(`Server is running at http://localhost:${PORT}`)
+    console.log(`Server is running at http://${AddressIp.address()}:${PORT}`)
 })
 
 module.exports = app
