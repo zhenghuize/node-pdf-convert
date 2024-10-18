@@ -146,4 +146,33 @@ routerInit.post('/list', AppController.getAppList)
  */
 routerInit.post('/create', AppController.setUserInfo)
 
+/**
+ * @swagger
+ * /v1/app/users:
+ *   get:
+ *     description: 获取用户信息
+ *     tags: [子应用模块]
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *     - in: "query"
+ *       name: "name"
+ *       description: "保存的参数"
+ *       schema:
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: 获取用户信息成功
+ *         schema:
+ *           type: object
+ *           properties:
+ *             name:
+ *               type: string
+ *             age:
+ *               type: number
+ *
+ *
+ */
+routerInit.get('/users', AppController.getUserInfo)
+
 export default routerInit
